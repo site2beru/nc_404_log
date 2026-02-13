@@ -2,10 +2,10 @@
 
 <!-- Footer --><?php
 if ($AUTH_USER_ID) {
-    if($_SERVER['SERVER_NAME'] == 'beta.uni-fitt.shop'){
-        $SN = "beta.uni-fitt.shop";
+    if($_SERVER['SERVER_NAME'] == 'beta.site.name'){ // в оригинале здесь был тестовый URL
+        $SN = ""; // в оригинале здесь был тестовый URL
     } else {
-        $SN = "uni-fitt.shop";
+        $SN = ""; // здесь рабочий URL
     }
     
     $nc_core = nc_Core::get_object();
@@ -164,7 +164,8 @@ if ($AUTH_USER_ID) {
         <?php endif; ?>
         
         <?php
-        $file_log = '/home/unifitt/'.$SN . '/www/netcat_files/_logs/short_404_errors_' . date('Y-m') . '.log';
+        // запись лога еще и в файл, если нужно
+        $file_log = '/home/YOUR_SITE_FOLDER/'.$SN . '/www/netcat_files/_logs/short_404_errors_' . date('Y-m') . '.log';
         if (file_exists($file_log) && (!$table_exists || $total_all == 0)):
             $lines = file($file_log);
             if ($lines):
